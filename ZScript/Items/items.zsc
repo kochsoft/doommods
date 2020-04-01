@@ -2,6 +2,7 @@ class MHKAmp : PowerLightAmp
 {
   Default
   {
+    +INVENTORY.PERSISTENTPOWER
     Powerup.Duration 0x7FFFFFFF;
     Powerup.Colormap 1.0, 1.0, 1.0;
   }
