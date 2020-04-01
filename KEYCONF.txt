@@ -23,8 +23,7 @@ alias MHKBerserkOn "echo Rip and Tear your guts!; playsound effects/mhkon; give 
 alias MHKBerserkOff "echo Feeling of Invincibility ... over.; playsound effects/mhkoff; take PowerStrength; rebind MHKBerserkOn"
 defaultbind B MHKBerserkOn
 
-addmenukey "Antirad Armor" MHKAntiradOn
-alias MHKAntiradOn "echo Antirad Armor powered up.; playsound effects/mhkon; give PowerIronFeet; rebind MHKAntiradOff"
-alias MHKAntiradOff "echo Antirad Armor powered down.; playsound effects/mhkoff; take PowerIronFeet; rebind MHKAntiradOn"
-defaultbind V MHKAntiradOn
+addmenukey "Antirad Armor" MHKAntirad
+alias MHKAntirad "echo Antirad Armor powered up.; playsound effects/mhkon; give PowerIronFeet"
+defaultbind V MHKAntirad
 
