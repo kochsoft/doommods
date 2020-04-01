@@ -1,0 +1,3 @@
+effects/mhkon "Sounds/MHK/d5.ogg"
+effects/mhkoff "Sounds/MHK/e5.ogg"
+
