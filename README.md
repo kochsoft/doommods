@@ -34,6 +34,4 @@ recommend for anyone who loves an artistically well-done cross between "Russian 
 also gave a template for this almost trivial mod you see here. Actually the light amp is little more than a rip-off of Bohnesorge's
 "Baron Vision" code.
 
-All the rest I learned from ZDoom.org's excellent Wiki pages.
-
-
+Also many thanks to the authors of ZDoom.org's excellent Wiki pages.
