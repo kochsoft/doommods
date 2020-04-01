@@ -1,3 +1,5 @@
 version "3.4.0"
 
 #include "ZScript/Items/items.zsc"
+
+// zdoom.org/wiki/Functions

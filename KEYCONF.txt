@@ -16,10 +16,15 @@ addkeysection "MHK - Helper Bag" MHKModControls
 addmenukey "Light Amp" MHKVisionOn
 alias MHKVisionOn "echo There's a light over at the Frankenstein place!; playsound effects/mhkon; give MHKAmp; rebind MHKVisionOff"
 alias MHKVisionOff "echo Anyone can see this.; playsound effects/mhkoff; take MHKAmp; rebind MHKVisionOn"
-defaultbind N MHKVision
+defaultbind N MHKVisionOn
 
 addmenukey "Berserk Attitude" MHKBerserkOn
 alias MHKBerserkOn "echo Rip and Tear your guts!; playsound effects/mhkon; give PowerStrength; rebind MHKBerserkOff"
 alias MHKBerserkOff "echo Feeling of Invincibility ... over.; playsound effects/mhkoff; take PowerStrength; rebind MHKBerserkOn"
-defaultbind B MHKBerserk
+defaultbind B MHKBerserkOn
+
+addmenukey "Antirad Armor" MHKAntiradOn
+alias MHKAntiradOn "echo Antirad Armor powered up.; playsound effects/mhkon; give PowerIronFeet; rebind MHKAntiradOff"
+alias MHKAntiradOff "echo Antirad Armor powered down.; playsound effects/mhkoff; take PowerIronFeet; rebind MHKAntiradOn"
+defaultbind V MHKAntiradOn
 
