@@ -11,7 +11,7 @@
 // Includes the example using rebind to get toggle behavior:
 //   https://zdoom.org/wiki/CCMDs
 
-addkeysection "MHK - Helper Bag" MHKModControls
+addkeysection "Helper Bag" MHKModControls
 
 addmenukey "Light Amp" MHKVisionOn
 alias MHKVisionOn "echo There's a light over at the Frankenstein place!; playsound effects/mhkon; give MHKAmp; rebind MHKVisionOff"
