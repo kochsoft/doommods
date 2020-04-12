@@ -22,9 +22,12 @@ defaultbind N MHKVisionOn
 addmenukey "Berserk Attitude" MHKBerserkOn
 alias MHKBerserkOn "echo Rip and Tear your guts!; playsound effects/mhkon; give PowerStrength;" // rebind MHKBerserkOff"
 // alias MHKBerserkOff "echo Feeling of Invincibility ... over.; playsound effects/mhkoff; take PowerStrength; rebind MHKBerserkOn"
-defaultbind B MHKBerserkOn
+//defaultbind B MHKBerserkOn
 
 addmenukey "Antirad Armor" MHKAntirad
 alias MHKAntirad "echo Antirad Armor powered up.; playsound effects/mhkon; give PowerIronFeet"
-defaultbind V MHKAntirad
+//defaultbind V MHKAntirad
 
+addmenukey "Load Blueprints" MHKAllmap
+alias MHKAllmap "echo Area Blueprints download successful.; playsound effects/mhkon; give allmap;"
+//defaultbind M MHKAllmap
