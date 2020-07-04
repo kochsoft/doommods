@@ -13,6 +13,9 @@
 #   rng numbers have been drawn between orb strike and BFG spray.
 
 # Textual Results:
+# > summary(data_total_sim)
+#   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#   2752    2964    3159    3134    3300    3507 
 # > summary(data_spray)
 #   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #   2652    2679    2688    2686    2695    2707 
@@ -69,4 +72,19 @@ for (j in indices)
   data_orb = c(data_orb, orb(rng_d8, j));
 }
 
-png()
+data_total_sim = NULL;
+for (orb in data_orb)
+{
+  data_total_sim = c(data_total_sim, data_spray + orb);
+}
+
+# Generates above textual output.
+summary(data_total_sim);
+summary(data_spray);
+summary(data_orb);
+
+png("bfg_plots.png");
+par(mfrow=c(1,2));
+plot(density(data_spray), main="Low-Var Spray");
+boxplot(data_total_sim, main="Point Blank Total");
+dev.off();
