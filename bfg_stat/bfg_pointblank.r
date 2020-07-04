@@ -23,7 +23,13 @@
 #   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #   100.0   300.0   500.0   447.7   600.0   800.0
 #
-# Assuming independence of both this leads to min == 2752 and max == 3507
+# Thus for a point blank strike this leads to min == 2752 and max == 3507.
+#
+# Btw.: Spray damage for a single ray is in [49, 87] this would lead to
+# a naive point blank min == 2060 and max == 4280 which would still allow for
+# a one-hit cyberdemon-kill. However, this is impossible if all 40
+# rays are computed consecutively as shown in this script (if all assumptions
+# made hold).
 
 # https://www.doomworld.com/forum/topic/89069-shotgun-minimum-damage-and-rng/
 rng = c(0, 8, 109, 220, 222, 241, 149, 107,  75, 248, 254, 140,  16,  66 ,
@@ -48,15 +54,22 @@ rng = c(0, 8, 109, 220, 222, 241, 149, 107,  75, 248, 254, 140,  16,  66 ,
 
 rng_d8 = bitwAnd(rng, 7) + 1;
 
-spray <- function(tab, j0)
+# Damage done by a BFG spray hitting with n_rays rays.
+#   tab is the rng table to be used. Should be rng_d8.
+#   j0 is the starting index within the rng table.
+#   n_rays: Number of ray hitting the target. Full hit is 40.
+spray <- function(tab, j0, n_rays=40)
 {
-  n = 15 * 40;
+  n = 15 * n_rays;
   indices = ((j0:(j0+n-1)) %% length(tab)) + 1;  # << R vectors are indexed starting at 1.
   damage = 0;
   for (j in indices) { damage = damage + tab[j]; }
   return (damage);
 }
 
+# Like spray(..) but for the primary BFG orb. There are three frames between
+# spray and orb damage. Thus I won't assume consecutive rng-pointer values
+# between both types of damage.
 orb <- function(tab, j0)
 {
   j = (j0 %% length(tab)) + 1;
@@ -68,10 +81,12 @@ data_spray = NULL;
 data_orb = NULL;
 for (j in indices)
 {
-  data_spray = c(data_spray, spray(rng_d8, j));
+  data_spray = c(data_spray, spray(rng_d8, j, n_rays=40));
   data_orb = c(data_orb, orb(rng_d8, j));
 }
 
+# Dataset for orb+spray assuming that starting rng pointer positions
+# are independent and uniformly random, which is considered good enough for now.
 data_total_sim = NULL;
 for (orb in data_orb)
 {
